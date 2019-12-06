@@ -1,0 +1,10 @@
+{% extends 'posts/base.html' %}
+
+{% load markdownify %}
+
+{% block content %}
+    <h2 class="is-size-2">{{ post.title }}</h2>
+    <article class="post content">
+    {{ post.text | markdownify }}
+    </article>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    {% if published_posts %}
+        <ul>
+            {% for post in published_posts %}
+            <li class="is-size-3">
+                <span class="is-size-5">{{ post.publication_date | date:"N d, Y" }}</span>
+                <a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts published yet.</p>
+    {% endif %}
+{% endblock %}
